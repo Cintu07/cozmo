@@ -46,7 +46,7 @@ export function Footer() {
             {SITES.map((s) => (
               <Link
                 key={s.slug}
-                href={s.slug}
+                href={s.href}
                 className="text-sm text-cream_text-body transition-colors hover:text-cream_text-primary"
               >
                 {s.title}

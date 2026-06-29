@@ -123,7 +123,7 @@ export default function Home() {
               {SITES.map((s) => (
                 <AudienceCard
                   key={s.slug}
-                  href={s.slug}
+                  href={s.href}
                   title={s.title}
                   hook={s.hook}
                 />

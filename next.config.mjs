@@ -11,8 +11,12 @@ const nextConfig = {
   reactStrictMode: true,
   async rewrites() {
     if (SITE && AUDIENCE_SITES.includes(SITE)) {
-      // Serve the audience page at the domain root so it reads as its own site.
-      return [{ source: "/", destination: `/${SITE}` }];
+      // beforeFiles: runs BEFORE filesystem routes, so "/" is rewritten to the
+      // audience page even though app/page.tsx exists. (A plain array would be
+      // afterFiles and never fire for "/".)
+      return {
+        beforeFiles: [{ source: "/", destination: `/${SITE}` }],
+      };
     }
     return [];
   },
